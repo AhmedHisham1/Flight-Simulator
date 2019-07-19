@@ -6,7 +6,7 @@ This project was conducted as a group project for the AER307A Flight Mechanics c
 The simulation is done on the De Havilland DHC-2 'Beaver' aircraft. However you can easily simulate a different aircraft by simply changing the aircraft-specific parameters (ie. the aero coeff., mass, inertia.. etc).
 
 ## Video Tutorial
-[to be added!]
+[https://youtu.be/pfqQNl3B31A]
 
 
 # TODO:
