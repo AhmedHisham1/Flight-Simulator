@@ -10,6 +10,6 @@ The simulation is done on the De Havilland DHC-2 'Beaver' aircraft. However you 
 
 
 # TODO:
-- A better method for adjusting the control surfaces values (rather that the slider gain)
-- Adding a control loop over one of states
+- A better method for adjusting the control surfaces values (rather than the slider gain)
+- Adding a control loop over one of the states
 - Perhaps try a different aircraft
