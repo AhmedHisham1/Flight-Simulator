@@ -62,11 +62,19 @@ function [ ydot ] = odefun5( t,y )
     N = Cn*qdyn*beaver_S*beaver_b;
     
     %%
-    ydot(1) = (Iz*L + Ixz*N + Ixz^2*q*r - Iz^2*q*r - Ixz*Iy*p*q + 2*Ixz*Iz*p*q + Iy*Iz*q*r)/(Ixz^2 + Ix*Iz);
+    % Hisham Method [Wrong]
+%     ydot(1) = (Iz*L + Ixz*N + Ixz^2*q*r - Iz^2*q*r - Ixz*Iy*p*q + 2*Ixz*Iz*p*q + Iy*Iz*q*r)/(Ixz^2 + Ix*Iz);
+%     
+%     ydot(2) = (M - Ixz*p^2 + Ixz*r^2 - Ix*q*r + Iz*q*r)/Iy;
+%     
+%     ydot(3) = -(Ixz*L - Ix*N + Ixz^2*p*q + Ix*Iy*p*q - Ix*Iz*p*q - Ix*Ixz*q*r + Ixz*Iy*q*r - Ixz*Iz*q*r)/(Ixz^2 + Ix*Iz);
     
-    ydot(2) = (M - Ixz*p^2 + Ixz*r^2 - Ix*q*r + Iz*q*r)/Iy;
+    % Khaled Method
+    ydot(1) = (Iz*L + Ixz*N - Ixz^2*q*r - Iz^2*q*r - Ixz*Iy*p*q +Ixz*Iz*p*q+Ixz*Ix*p*q+ Iy*Iz*q*r)/(Ix*Iz-Ixz^2);
     
-    ydot(3) = -(Ixz*L - Ix*N + Ixz^2*p*q + Ix*Iy*p*q - Ix*Iz*p*q - Ix*Ixz*q*r + Ixz*Iy*q*r - Ixz*Iz*q*r)/(Ixz^2 + Ix*Iz);
+    ydot(2) = (M - Ixz*p^2 + Ixz*r^2 - Ix*p*r + Iz*p*r)/Iy;
+    
+    ydot(3) = (Ixz*L + Ix*N + Ix^2*p*q - Ix*Iy*p*q - Ixz^2*p*q - Ix*Ixz*q*r + Ixz*Iy*q*r - Ixz*Iz*q*r)/(Ix*Iz-Ixz^2);
     
     %%
     euler = [[1, sin(y(4))*tan(y(5)), cos(y(4))*tan(y(5))];...
